@@ -38,7 +38,7 @@ router.route('/login/:email/:password')
         bcrypt.hash(()=>{
             bcrypt.compare(password, user.password, (err, data)=>{
                 if(data){
-                    res.send({userid:user._id, username:user.email, firstname:user.firstname})
+                    res.send({userid:user._id, email:user.email, firstname:user.firstname})
                 }
             })
         })
