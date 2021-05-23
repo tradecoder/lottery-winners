@@ -6,7 +6,7 @@ const UserSchema = new Schema({
     password:{type:String},
     firstname:{type:String},
     lastname:{type:String},
-    mobile:{type:Number},
+    mobile:{type:Number, unique:true},
     facebookprofile:{type:String},
     usertype:{type:String}
 }, {timestamps:true});
