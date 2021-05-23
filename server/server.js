@@ -3,6 +3,11 @@ const cors = require('cors');
 require('dotenv').config();
 const port = process.env.PORT || 5000;
 
+const mongoose = require('mongoose');
+const mongoUri = process.env.MONGO_URI;
+mongoose.connect(mongoUri, {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex:true, useFindAndModify:true})
+.then(()=>console.log("db connected!"))
+.catch(()=>{mongoose.connection.close(); console.log("db connection failed")});
 
 
 const app = express();
@@ -11,5 +16,10 @@ app.use(cors());
 
 
 app.listen(port, ()=>{
-    console.log("server is on")
+    try{
+        console.log("Server is on")
+    }
+    catch{
+        console.log("Error on Server")
+    }
 })
