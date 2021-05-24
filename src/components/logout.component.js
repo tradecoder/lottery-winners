@@ -8,13 +8,29 @@ export default function Logout(){
         localStorage.clear();
         window.location.assign("/login/");
     }
+
+    function renderLogout(){
+        if(!localStorage.getItem("localUser") && !localStorage.getItem("localUserId")){
+            window.location.assign("/login")
+        } else{
+            return(
+                <div>
+                    <p> Hi {localFirstName}!<br/> 
+                    Are you sure to logout?</p>
+                    <form onSubmit={onSubmitLogout}>
+                        <button type="submit">Yes, Logout</button>
+                    </form>
+                </div>
+            )
+
+        }
+    }
+
+
+
     return(
         <div>
-            <p> Hi {localFirstName}!<br/> 
-            Are you sure to logout?</p>
-            <form onSubmit={onSubmitLogout}>
-                <button type="submit">Yes, Logout</button>
-            </form>
+            {renderLogout()}
         </div>
     )
 }

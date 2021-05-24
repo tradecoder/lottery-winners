@@ -7,9 +7,9 @@ import Logout from './components/logout.component';
 function App() {
   return (
     <Router>
-      <Route path="/login/" component={Login} />
-      <Route path="/signup/" component={Signup} />
-      <Route path="/logout/" component={Logout}/>
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+      <Route path="/logout" component={Logout}/>
     </Router>
   );
 }

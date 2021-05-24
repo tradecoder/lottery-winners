@@ -73,7 +73,7 @@ export default function Login(){
 
     return(
         <div>
-            {renderLogin}
+            {renderLogin()}
         </div>
     )
 }
