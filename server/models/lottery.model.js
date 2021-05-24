@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const LotterySchema = new Schema({
-    lotterynumber:{type:String},
+    lotterynumber:{type:String, unique:true},
+    valid:{type:Boolean},
     firstname:{type:String},
     lastname:{type:String},
     mobile:{type:String},
@@ -11,7 +12,7 @@ const LotterySchema = new Schema({
     facebookurl:{type:String},
     email:{type:String}, 
     userid: {type:String},
-    status:{type:String}
+    status:{type:String}   
 
 }, {timestamps:true});
 
