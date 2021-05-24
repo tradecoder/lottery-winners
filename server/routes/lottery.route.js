@@ -52,7 +52,7 @@ router.route("/all/:admin/:userid")
     const {admin, userid} = req.params;
     // Although the user is logged in
     // to prevent any code injection 
-    // applying an extra layer match with admin permission to send all lottery data
+    // applying an extra layer User match with admin permission to send all lottery data
     Users.find({_id:userid, type:admin})
     .then(user=>{
         if(user._id){            
