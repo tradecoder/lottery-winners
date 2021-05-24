@@ -38,7 +38,7 @@ export default function Login(){
     }
 
     function renderLogin(){
-        if(!localStorage.localUser && !localStorage.localUserId){
+        if(!localStorage.getItem("localUser") && !localStorage.getItem("localUserId")){
             return(
                 <div>
                     <p>Please Login to Continue</p>
