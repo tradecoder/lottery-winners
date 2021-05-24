@@ -12,7 +12,7 @@ const LotterySchema = new Schema({
     facebookurl:{type:String},
     email:{type:String}, 
     userid: {type:String},
-    status:{type:String}   
+    winnerposition:{type:Number, unique:true}
 
 }, {timestamps:true});
 
