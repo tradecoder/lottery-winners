@@ -44,7 +44,9 @@ export default function Signup(){
             )
 
         }else{
-            window.alert("Please logout first")
+            window.alert("You are already logged in");
+            window.location.assign("/");
+
          }
     }
     return(
