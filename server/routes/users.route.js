@@ -30,6 +30,8 @@ router.route(':/register')
     .catch(err=>res.send("Registration faild. Please try with a different email and mobile number"))
 })
 
+
+/* Login servie */
 router.route('/login/:email/:password')
 .post((req, res)=>{
     const {email, password} = req.params;
