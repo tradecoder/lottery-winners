@@ -15,8 +15,8 @@ mongoose.connect(mongoUri, {useNewUrlParser:true, useUnifiedTopology:true, useCr
 const app = express();
 app.use(express.json());
 app.use(cors()); 
-app.use("/users", userRoutes);
-app.use("/lottery", lotteryRoutes);
+app.use("/api/users/", userRoutes);
+app.use("/api/lottery/", lotteryRoutes);
 
 
 app.listen(port, ()=>{
