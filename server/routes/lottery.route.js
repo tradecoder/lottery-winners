@@ -37,28 +37,34 @@ router.route("/new/:userid/:email")
     
 })
 
-router.route("/user/:userid/")
+// router.route("/user/:userid/")
+// .get((req, res)=>{
+//     const {userid} = req.params;
+//     Lottery.find({userid}, {_id:0, lotterynumber:1, valid:1,facebookurl:1})
+//     .then((data)=>{
+//         res.send(data)
+//     })
+//     .catch(err=>res.send(err))
+// })
+
+router.route("/user/:userid")
 .get((req, res)=>{
     const {userid} = req.params;
-    Lottery.find({userid}, {_id:0, lotterynumber:1, valid:1,facebookurl:1})
-    .then((data)=>{
-        res.send(data)
-    })
-    .catch(err=>res.send(err))
-})
-
-router.route("/all/:admin/:userid")
-.get((req, res)=>{
-    const {admin, userid} = req.params;
     // Although the user is logged in
     // to prevent any code injection 
     // applying an extra layer User match with admin permission to send all lottery data
-    Users.find({_id:userid, type:admin})
+    Users.findOne({_id:userid})
     .then(user=>{
-        if(user._id){            
+        if(user._id && user.usertype==="admin"){            
         Lottery.find({}, (data)=>{
             res.send(data)
         })      
+
+        } else if(user._id && user.usertype==="user"){
+            Lottery.find({userid}, {_id:0, lotterynumber:1, valid:1,facebookurl:1})
+            .then(lottery=>{
+                res.send(lottery)
+            })
 
         } else {
             res.send("Request declined!")
