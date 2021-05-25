@@ -14,11 +14,11 @@ export default function Logout(){
             window.location.assign("/login")
         } else{
             return(
-                <div>
+                <div className="logout">
                     <p> Hi {localFirstName}!<br/> 
                     Are you sure to logout?</p>
                     <form onSubmit={onSubmitLogout}>
-                        <button type="submit">Yes, Logout</button>
+                        <button className="btn btn-warning btn-block" type="submit">Yes, Logout</button>
                     </form>
                 </div>
             )
