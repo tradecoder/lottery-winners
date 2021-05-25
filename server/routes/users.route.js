@@ -32,20 +32,24 @@ router.route('/register')
 
 
 /* Login servie */
-router.route('/login/:email/:password')
+router.route("/login/:email/")
 .post((req, res)=>{
-    const {email, password} = req.params;
-    Users.find({email})
+    const {email} = req.params;
+    const {password} = req.body;    
+    Users.findOne({email})
     .then(user=>{
         bcrypt.hash(()=>{
-            bcrypt.compare(password, user.password, (err, data)=>{
-                if(data){
-                    res.send({userid:user._id, email:user.email, firstname:user.firstname})
-                }
-            })
-        })
-    })
-    .catch(()=>res.send("Request declined! Try with correct information. "))
+        bcrypt.compare(password, user.password, (err, data)=>{        
+           if(data){              
+           res.send({email:user.email, userid:user._id, firstname:user.firstname});
+           } else{
+               res.send({error:'password or username not matched!'});
+           }
+       })
+    }) 
+})
+  
+    .catch(err=>res.send(err))
 })
 
 

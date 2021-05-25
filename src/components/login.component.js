@@ -17,12 +17,14 @@ export default function Login(){
     function onSubmitLogin(e){
         e.preventDefault();
         
-        axios.post(`http://localhost:5000/api/users/login/${email}/${password}`)
+        axios.post(`http://localhost:5000/api/users/login/${email}/`, {password})
         .then(res=>{
+            console.log(res);       
             setLocalUser(res.data.email);
             setLocalUserid(res.data.userid);
             setLocalFirstName(res.data.firstname);
-            window.location.assign("/");
+            // window.location.assign("/");
+            
         })
         .catch(err=>window.alert(err))
     }
@@ -60,10 +62,12 @@ export default function Login(){
             )
 
         } else {
+         
             return(
+                
                 <div className="login">
                 <p className="text-success">Hi {localStorage.getItem('localFirstName')} ! </p>
-                <h4 className="text-success">Your are welcome! </h4>
+                <h4 className="text-success">You are welcome! </h4>
                 <p className="text-secondary">Please select an item from the menu to continue.</p>
         </div>
             )
