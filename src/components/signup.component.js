@@ -13,30 +13,32 @@ export default function Signup(){
             return(
                 <div className="signup">
                     <p>Please sign up</p>
+                    
                     <div>
                         <form onSubmit={onSubmitSignup}>
                             <div className="form-group">
-                                <label>Email as username</label>
-                                <input className="form-control" type="email"/>
+                                <label>Email as username </label>
+                                <input className="form-control" type="email" required/>
                             </div>
                             <div className="form-group">
-                                <label>Password</label>
-                                <input className="form-control" type="password" />
+                                <label>Password </label>
+                                <input className="form-control" type="password" required/>
                             </div>
                             <div className="form-group">
                                 <label>First name</label>
-                                <input className="form-control" type="text"/>
+                                <input className="form-control" type="text" required/>
                             </div>
                             <div className="form-group">
-                                <label>Last name</label>
-                                <input className="form-control" type="text"/>
+                                <label>Last name </label>
+                                <input className="form-control" type="text" required/>
                             </div>
                             <div className="form-group">
-                                <label>Mobile number</label>
-                                <input className="form-control" type="text"/>
+                                <label>Mobile number </label>
+                                <input className="form-control" type="text" required/>
                             </div>
-                            <div>
-                                <button className="btn btn-success" type="submit">Signup</button>
+                            <div>                                
+                                <button className="btn btn-success btn-block" type="submit">Signup</button>
+                                <p className="text-right pt-1">Have an account? <a target="_self" href="/login">Login here</a></p>
                             </div>
                         </form>
                     </div>

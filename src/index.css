@@ -11,10 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@keyframes userform {
+  0%   {background-color: white;}
+  33% {background-color: azure;}
+  66% {background-color: beige;} 
+  100% {background-color: white;}
+}
 .signup, .login, .logout{
+  background-color: white;
   max-width:350px;
   margin:auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
   border-radius: 10px;
+  animation-name: userform;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }

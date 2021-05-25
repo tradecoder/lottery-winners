@@ -52,7 +52,8 @@ export default function Login(){
                             <input type="password" placeholder="Password" onChange={onChangePassword} className="form-control" required />
                         </div>
                         <div>                      
-                            <button className="btn btn-primary" type="submit">Login</button>
+                            <button className="btn btn-primary btn-block" type="submit">Login</button>
+                            <p className="text-right">Haven't an account? <a target="_self" href="/signup">Signup here</a></p>
                         </div>
                     </form>
                 </div>
