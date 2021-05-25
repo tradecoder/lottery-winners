@@ -40,16 +40,16 @@ export default function Login(){
     function renderLogin(){
         if(!localStorage.getItem("localUser") && !localStorage.getItem("localUserId")){
             return(
-                <div>
+                <div className="login">
                     <p>Please Login to Continue</p>
                     <form onSubmit={onSubmitLogin}>
                         <div className="form-group">
                             <label>Username</label>
-                            <input type="text" placeholder="Email address" onChange={onChangeEmail} required />
+                            <input type="text" placeholder="Email address" onChange={onChangeEmail} className="form-control" required />
                         </div>
                         <div className="form-group">
                             <label>Password</label>
-                            <input type="password" placeholder="Password" onChange={onChangePassword} required />
+                            <input type="password" placeholder="Password" onChange={onChangePassword} className="form-control" required />
                         </div>
                         <div>                      
                             <button className="btn btn-primary" type="submit">Login</button>
@@ -60,8 +60,8 @@ export default function Login(){
 
         } else {
             return(
-                <div className="body-part shadow">
-                <p>Hi {localStorage.getItem('localFirstName')} ! </p>
+                <div className="login">
+                <p className="text-success">Hi {localStorage.getItem('localFirstName')} ! </p>
                 <h4 className="text-success">Your are welcome! </h4>
                 <p className="text-secondary">Please select an item from the menu to continue.</p>
         </div>

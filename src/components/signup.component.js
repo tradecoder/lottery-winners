@@ -11,32 +11,32 @@ export default function Signup(){
     function renderSignup(){
         if(!localStorage.getItem("localUser") && !localStorage.getItem("localUserId")){
             return(
-                <div>
+                <div className="signup">
                     <p>Please sign up</p>
                     <div>
                         <form onSubmit={onSubmitSignup}>
                             <div className="form-group">
                                 <label>Email as username</label>
-                                <input type="email"/>
+                                <input className="form-control" type="email"/>
                             </div>
                             <div className="form-group">
                                 <label>Password</label>
-                                <input type="password" />
+                                <input className="form-control" type="password" />
                             </div>
                             <div className="form-group">
                                 <label>First name</label>
-                                <input type="text"/>
+                                <input className="form-control" type="text"/>
                             </div>
                             <div className="form-group">
                                 <label>Last name</label>
-                                <input type="text"/>
+                                <input className="form-control" type="text"/>
                             </div>
                             <div className="form-group">
                                 <label>Mobile number</label>
-                                <input type="text"/>
+                                <input className="form-control" type="text"/>
                             </div>
                             <div>
-                                <button className="btn btn-primary" type="submit">Submit</button>
+                                <button className="btn btn-success" type="submit">Signup</button>
                             </div>
                         </form>
                     </div>
