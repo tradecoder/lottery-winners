@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
- 
+
 
 export default function Login(){
     const [email, setEmail] = useState("");
@@ -51,8 +51,8 @@ export default function Login(){
                             <label>Password</label>
                             <input type="password" placeholder="Password" onChange={onChangePassword} required />
                         </div>
-                        <div>
-                            <button type="submit">Login</button>
+                        <div>                      
+                            <button className="btn btn-primary" type="submit">Login</button>
                         </div>
                     </form>
                 </div>
@@ -72,7 +72,7 @@ export default function Login(){
 
 
     return(
-        <div>
+        <div className="container">
             {renderLogin()}
         </div>
     )

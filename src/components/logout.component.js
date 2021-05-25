@@ -29,7 +29,7 @@ export default function Logout(){
 
 
     return(
-        <div>
+        <div className="container">
             {renderLogout()}
         </div>
     )

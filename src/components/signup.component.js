@@ -36,7 +36,7 @@ export default function Signup(){
                                 <input type="text"/>
                             </div>
                             <div>
-                                <button type="submit">Submit</button>
+                                <button className="btn btn-primary" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -50,7 +50,7 @@ export default function Signup(){
          }
     }
     return(
-        <div>
+        <div className="container">
             {renderSignup()}        
         </div>
     )
