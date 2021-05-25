@@ -66,3 +66,5 @@ router.route("/all/:admin/:userid")
     })
     .catch(err=>res.send(err))
 })
+
+module.exports = router;

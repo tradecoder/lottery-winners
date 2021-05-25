@@ -3,7 +3,7 @@ const Users = require('../models/users.model');
 const bcrypt = require('bcrypt');
 const saltRound = 12;
 
-router.route(':/register')
+router.route('/register')
 .post((req, res)=>{
     const {
         email,
@@ -26,7 +26,7 @@ router.route(':/register')
     });
 
     User.save()
-    .then(data=>res.send(data))
+    .then(data=>res.send("Congragulations! Registration is successful. "))
     .catch(err=>res.send("Registration faild. Please try with a different email and mobile number"))
 })
 
@@ -47,3 +47,6 @@ router.route('/login/:email/:password')
     })
     .catch(()=>res.send("Request declined! Try with correct information. "))
 })
+
+
+module.exports = router;

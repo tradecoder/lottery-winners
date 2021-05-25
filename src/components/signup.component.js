@@ -1,12 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from 'axios';
 
 
 export default function Signup(){
+    const [userData, setUserData] =  useState({
+        email:"",
+        password:"",
+        firstname:"",
+        lastname:"",
+        mobile:0,
+        facebookprofile:""
+    });
+
+    function onChangeUserData(e){
+        setUserData({...userData, [e.target.name]:e.target.value})
+    }
 
 
     function onSubmitSignup(e){
         e.preventDefault();
+        axios.post(`http://localhost:5000/api/users/register/`, userData)
+        .then(res=>{
+            setUserData({
+                email:"",
+                password:"",
+                firstname:"",
+                lastname:"",
+                mobile:0,
+                facebookprofile:""
+            })
+            document.querySelector("form").reset();
+            window.alert(res.data);
+            
+        })
+        .catch(err=>window.alert(err));
+
+        
     }
+        
 
     function renderSignup(){
         if(!localStorage.getItem("localUser") && !localStorage.getItem("localUserId")){
@@ -18,23 +49,27 @@ export default function Signup(){
                         <form onSubmit={onSubmitSignup}>
                             <div className="form-group">
                                 <label>Email as username </label>
-                                <input className="form-control" type="email" required/>
+                                <input name="email" className="form-control" type="email" onChange={onChangeUserData} required/>
                             </div>
                             <div className="form-group">
                                 <label>Password </label>
-                                <input className="form-control" type="password" required/>
+                                <input name="password" className="form-control" type="password" onChange={onChangeUserData} required/>
                             </div>
                             <div className="form-group">
                                 <label>First name</label>
-                                <input className="form-control" type="text" required/>
+                                <input name="firstname" className="form-control" type="text" onChange={onChangeUserData} required/>
                             </div>
                             <div className="form-group">
                                 <label>Last name </label>
-                                <input className="form-control" type="text" required/>
+                                <input name="lastname" className="form-control" type="text" onChange={onChangeUserData} required/>
                             </div>
                             <div className="form-group">
                                 <label>Mobile number </label>
-                                <input className="form-control" type="text" required/>
+                                <input name="mobile" className="form-control" type="text" onChange={onChangeUserData} required/>
+                            </div>
+                            <div className="form-group">
+                                <label>Facebook profile url </label>
+                                <input name="facebookprofile" className="form-control" type="url" onChange={onChangeUserData} required/>
                             </div>
                             <div>                                
                                 <button className="btn btn-success btn-block" type="submit">Signup</button>
@@ -43,7 +78,9 @@ export default function Signup(){
                         </form>
                     </div>
                 </div>
+                
             )
+            
 
         }else{
             window.alert("You are already logged in");
