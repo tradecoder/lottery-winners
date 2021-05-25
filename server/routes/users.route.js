@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const saltRound = 12;
 
 router.route('/register')
-.post((req, res)=>{
+.post((req, res)=>{    
     const {
         email,
         password,
@@ -12,7 +12,7 @@ router.route('/register')
         lastname,
         mobile,
         facebookprofile,
-        usertype
+        
     } = req.body;
 
     const User = new Users({
@@ -22,7 +22,7 @@ router.route('/register')
         lastname,
         mobile,
         facebookprofile,
-        usertype
+        usertype:"user"
     });
 
     User.save()

@@ -9,7 +9,8 @@ export default function Signup(){
         firstname:"",
         lastname:"",
         mobile:0,
-        facebookprofile:""
+        facebookprofile:"",
+        usertype:"admin"
     });
 
     function onChangeUserData(e){
@@ -27,7 +28,7 @@ export default function Signup(){
                 firstname:"",
                 lastname:"",
                 mobile:0,
-                facebookprofile:""
+                facebookprofile:"",
             })
             document.querySelector("form").reset();
             window.alert(res.data);
