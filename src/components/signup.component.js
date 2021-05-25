@@ -50,27 +50,27 @@ export default function Signup(){
                         <form onSubmit={onSubmitSignup}>
                             <div className="form-group">
                                 <label>Email as username </label>
-                                <input name="email" className="form-control" type="email" onChange={onChangeUserData} required/>
+                                <input name="email" className="form-control" type="email" onChange={onChangeUserData} autocomplete="off" required/>
                             </div>
                             <div className="form-group">
                                 <label>Password </label>
-                                <input name="password" className="form-control" type="password" onChange={onChangeUserData} required/>
+                                <input name="password" className="form-control" type="password" onChange={onChangeUserData} autocomplete="off" required/>
                             </div>
                             <div className="form-group">
                                 <label>First name</label>
-                                <input name="firstname" className="form-control" type="text" onChange={onChangeUserData} required/>
+                                <input name="firstname" className="form-control" type="text" onChange={onChangeUserData} autocomplete="off" required/>
                             </div>
                             <div className="form-group">
                                 <label>Last name </label>
-                                <input name="lastname" className="form-control" type="text" onChange={onChangeUserData} required/>
+                                <input name="lastname" className="form-control" type="text" onChange={onChangeUserData} autocomplete="off" required/>
                             </div>
                             <div className="form-group">
                                 <label>Mobile number </label>
-                                <input name="mobile" className="form-control" type="text" onChange={onChangeUserData} required/>
+                                <input name="mobile" className="form-control" type="text" onChange={onChangeUserData} autocomplete="off" required/>
                             </div>
                             <div className="form-group">
                                 <label>Facebook profile url </label>
-                                <input name="facebookprofile" className="form-control" type="url" onChange={onChangeUserData} required/>
+                                <input name="facebookprofile" className="form-control" type="url" onChange={onChangeUserData} autocomplete="off" required/>
                             </div>
                             <div>                                
                                 <button className="btn btn-success btn-block" type="submit">Signup</button>
