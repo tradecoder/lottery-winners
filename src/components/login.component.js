@@ -18,8 +18,7 @@ export default function Login(){
         e.preventDefault();
         
         axios.post(`http://localhost:5000/api/users/login/${email}/`, {password})
-        .then(res=>{
-            console.log(res);       
+        .then(res=>{             
             setLocalUser(res.data.email);
             setLocalUserid(res.data.userid);
             setLocalFirstName(res.data.firstname);

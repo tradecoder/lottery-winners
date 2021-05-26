@@ -26,8 +26,8 @@ router.route('/register')
     });
 
     User.save()
-    .then(data=>res.send("Congragulations! Registration is successful. "))
-    .catch(err=>res.send("Registration faild. Please try with a different email and mobile number"))
+    .then(()=>res.send("Congragulations! Registration is successful. "))
+    .catch(()=>res.send("Registration faild. Please try with a different email and mobile number"))
 })
 
 
@@ -41,7 +41,7 @@ router.route("/login/:email/")
         bcrypt.hash(()=>{
         bcrypt.compare(password, user.password, (err, data)=>{        
            if(data){              
-           res.send({email:user.email, userid:user._id, firstname:user.firstname});
+           res.send({email:user.email, userid:user._id, firstname:user.firstname, usertype:user.usertype});
            } else{
                res.send({error:'password or username not matched!'});
            }
